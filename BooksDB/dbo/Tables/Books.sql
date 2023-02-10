@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[Books]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [BookId] VARCHAR(20) NOT NULL, 
+    [AuthorId] INT NOT NULL, 
+    [Title] NVARCHAR(150) NOT NULL, 
+    [Genre] NVARCHAR(50) NOT NULL, 
+    [Price] MONEY NOT NULL, 
+    [PublishDate] DATETIME NOT NULL, 
+    [Description] NVARCHAR(3500) NOT NULL, 
+    [ModifyDate] DATETIME NOT NULL DEFAULT GETDATE()
+)
