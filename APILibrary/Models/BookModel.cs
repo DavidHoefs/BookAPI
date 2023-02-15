@@ -58,9 +58,19 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="BookModel"/> class.
         /// </summary>
+        public BookModel(string bookId, string authorFirstName, string authorLastName, string title, string genre, string description)
+        {
+            BookId = bookId;
+            AuthorFirstName = authorFirstName;
+            AuthorLastName = authorLastName;
+            Title = title;
+            Genre = genre;
+            Description = description;
+        }
+
         public BookModel()
         {
-            
+                
         }
     }
 }

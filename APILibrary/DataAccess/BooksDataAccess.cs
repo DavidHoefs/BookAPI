@@ -6,7 +6,7 @@ namespace APILibrary.DataAccess
     /// <summary>
     /// The books data access.
     /// </summary>
-    public class BooksDataAccess
+    public class BooksDataAccess : IBooksDataAccess
     {
         private readonly ISqlDataAccess _sqlDataAccess;
 
@@ -25,7 +25,18 @@ namespace APILibrary.DataAccess
         /// <returns>A Task.</returns>
         public async Task<List<BookModel>> GetAllBooks()
         {
+            
             return await _sqlDataAccess.LoadDataAsync<BookModel, dynamic>("dbo.spBooks_GetBooks", new { }, "BooksDB");
+        }
+
+        /// <summary>
+        /// Inserts the book.
+        /// </summary>
+        /// <param name="bookToInsert">The book to insert.</param>
+        public void InsertBook(BookModel bookToInsert)
+        {
+
+            _sqlDataAccess.SaveData("dbo.spBooks_InsertBook", new { bookToInsert.BookId,bookToInsert.Title,bookToInsert.AuthorFirstName,bookToInsert.AuthorLastName,bookToInsert.Genre,bookToInsert.Price,bookToInsert.PublishDate,bookToInsert.Description }, "BooksDB");
         }
     }
 }

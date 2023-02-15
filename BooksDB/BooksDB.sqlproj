@@ -66,6 +66,7 @@
     <Build Include="dbo\Tables\Authors.sql" />
     <Build Include="dbo\Tables\Genres.sql" />
     <Build Include="dbo\StoredProcedures\spBooks_GetBooks.sql" />
+    <Build Include="dbo\StoredProcedures\spBooks_InsertBook.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="BooksDB.refactorlog" />

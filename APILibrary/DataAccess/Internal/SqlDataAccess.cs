@@ -46,7 +46,8 @@ namespace APILibrary.DataAccess.Internal
         {
             var connectionString = GetConnectionString(connectionStringName);
             using IDbConnection connection = new SqlConnection(connectionString);
-            connection.Execute(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+            var result = connection.Query(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+            Console.WriteLine();
         }
 
         /// <summary>

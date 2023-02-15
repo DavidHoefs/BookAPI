@@ -1,3 +1,4 @@
+using APILibrary.DataAccess;
 using APILibrary.DataAccess.Internal;
 
 namespace BookAPI
@@ -15,6 +16,7 @@ namespace BookAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
+            builder.Services.AddSingleton<IBooksDataAccess, BooksDataAccess>();
 
             var app = builder.Build();
 
